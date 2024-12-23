@@ -1,18 +1,18 @@
 import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-
-app.get('/dogs', (req, res) => {
-  res.send('わんわん');
-});
-
-app.get('/cats', (req, res) => {
-  res.send('にゃー');
-});
+const PORT = 3000;
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-  res.send('ホームページにようこそ');
+  res.render('home', { title: 'ちゃおっす！' })
 });
+
+
 
 app.get('/search', (req, res) => {
   const { q } = req.query;
@@ -23,6 +23,6 @@ app.get('/search', (req, res) => {
 });
 
 
-app.listen(3000, () =>{
-  console.log('サーバー起動！！');
+app.listen(PORT, () =>{
+  console.log(`サーバーを起動しました。ポート番号：${PORT}`);
 })
