@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="common.css"> -->
+  <title>商品の新規作成</title>
+</head>
+<body>
+  <h1>商品の新規作成</h1>
+  <form action="/products" method="POST">
+    <label for="name">商品名：</label>
+    <input type="text" name="name" id="name">
+    <label for="price">価格：</label>
+    <input type="number" name="price" id="price">
+    <label for="category">分類：</label>
+    <select name="category" id="category">
+      <option value="果物">果物</option>
+      <option value="野菜">野菜</option>
+      <option value="お菓子">お菓子</option>
+    </select>
+    <button>登録</button>
+  </form>
+  <br>
+  <a href="/products">一覧画面に戻る</a>
+</body>
+</html>
