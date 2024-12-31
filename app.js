@@ -1,6 +1,7 @@
 import { app, initExpress } from './config/express.js';
 import { mongooseConnect } from './config/mongoose.js';
 import { Campground } from './models/campGround.js';
+import morgan from 'morgan';
 
 mongooseConnect();
 initExpress();
