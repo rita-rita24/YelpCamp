@@ -1,10 +1,13 @@
-import { app, initExpress } from './config/express.js';
+import { app, initExpress, notFound } from './config/express.js';
 import { mongooseConnect } from './config/mongoose.js';
 import { Campground } from './models/campGround.js';
-import morgan from 'morgan';
 
 mongooseConnect();
 initExpress();
+
+app.get('/', (req, res) => {
+  res.redirect('/campgrounds');
+});
 
 app.get('/campgrounds', async (req, res) => {
   const campgrounds = await Campground.find({});
@@ -21,7 +24,7 @@ app.get('/campgrounds/:id', async (req, res) => {
 });
 
 app.post('/campgrounds', async (req, res) => {
-  const campground = new Campground(req.body.campground);
+  const campground = new Campground(req.body);
   await campground.save();
   res.redirect(`/campgrounds/${campground._id}`);
 });
@@ -42,3 +45,5 @@ app.delete('/campgrounds/:id', async (req, res) => {
   await Campground.findByIdAndDelete(id);
   res.redirect('/campgrounds');
 });
+
+notFound();
