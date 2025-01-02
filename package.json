@@ -5,23 +5,29 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "seeder": "node ./seeder/index.js"
+    "seeder": "node ./seeder/index.js",
+    "watch": "webpack --watch",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "ART",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
     "express": "^4.21.2",
+    "joi": "^17.13.3",
     "method-override": "^3.0.0",
     "mongoose": "^5.13.23",
     "morgan": "^1.10.0",
     "tabulator-tables": "^6.3.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
   }
 }
